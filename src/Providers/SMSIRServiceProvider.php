@@ -10,7 +10,7 @@ class SMSIRServiceProvider extends ServiceProvider {
         if ($this->app->runningInConsole()) {
 
             $this->publishes([
-                __DIR__.'/../Config/config.php' => config_path('smsir.php'),
+                __DIR__.'/../Config/smsir.php' => config_path('smsir.php'),
             ], 'config');
 
         }
