@@ -1,6 +1,6 @@
 <?php
 
-namespace MRGear\SMSIR\Notification;
+namespace MRGear\SMSIR\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -28,7 +28,7 @@ class SMSIRNotification extends Notification
      */
     public function via($notifiable)
     {
-        return [SMSIRChannel::class];
+        return config('smsir.channels');
     }
 
     /**

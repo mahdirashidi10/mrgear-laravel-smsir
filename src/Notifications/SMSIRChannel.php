@@ -1,6 +1,6 @@
 <?php
 
-namespace MRGear\SMSIR\Notification;
+namespace MRGear\SMSIR\Notifications;
 
 use Illuminate\Notifications\Notification;
 
