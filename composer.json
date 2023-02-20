@@ -1,0 +1,46 @@
+{
+  "name": "mrgear/laravel-smsir",
+  "description": "sms.ir version 2 laravel package",
+  "keywords": [
+    "mrw",
+    "sms.ir",
+    "sms",
+    "laravel sms",
+    "notification",
+    "laravel"
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^7.5@dev"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^7.0"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "MRGear\\SMSIR\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MRGear\\SMSIR\\Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "mahdi rashidi",
+      "email": "mahdirashidi.developer@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MRGear\\SMSIR\\ServiceProviders\\SMSIRServiceProvider"
+      ],
+      "aliases": {
+        "SMSIRF": "MRGear\\SMSIR\\SMSIRFacade"
+      }
+    }
+  }
+}
