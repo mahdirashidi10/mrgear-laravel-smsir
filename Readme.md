@@ -31,9 +31,9 @@
 
 
 ## نصب
+</div>
 
 ---
-</div>
 
 ```
 composer require mrgear/laravel-smsir
@@ -74,6 +74,7 @@ php artisan vendor:publish --provider=MRGear\SMSIR\Providers\SMSIRServiceProvide
 ##  طریقه استفاده
 
 ---
+
 با استفاده از کلاس ```SMSIR``` میتوانیم پروسه ارسال اس ام اس را انجام دهیم.
 
 ### متودها
@@ -129,7 +130,9 @@ $smsir_instance->send();
 </div>
 
 <div dir="rtl">
- روش از سال تکی:
+
+####  روش از سال تکی: 
+
 </div>
 
 ```php
@@ -142,7 +145,9 @@ $smsir_instance->single()->send();
 ```
 
 <div dir="rtl">
-روش از سال گروهی:
+
+#### روش از سال گروهی: 
+
 </div>
 
 ```php
@@ -155,7 +160,9 @@ $smsir_instance->multiple()->send();
 ```
 
 <div dir="rtl">
-روش از سال نظیر به نظیر:
+
+#### روش از سال نظیر به نظیر: 
+
 </div>
 
 ```php
@@ -169,7 +176,9 @@ $smsir_instance->p2p()->send();
 
 
 <div dir="rtl">
-روش از سال وریفای:
+
+#### روش از سال وریفای: 
+
 </div>
 
 ```php
@@ -179,5 +188,13 @@ $smsir_instance->parameters(['12454' , 'VERIFICATION_CODE'])->fast()->send();
 
 $smsir_instance->templateId('123xx')->parameters(['VERIFICATION_CODE' , '12345'])->fast()->send();
 ```
+
+<div dir="rtl">
+
+## نوتیفیکیشن
+
+---
+کلاس ```SMSIRNotification``` از سیستم نوتیفیکیشن لاراول بهره میبرد
+</div>
 
 </div>
