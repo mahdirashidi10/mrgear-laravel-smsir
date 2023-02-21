@@ -52,7 +52,7 @@ class SMSIR
         return $this;
     }
 
-    public function singleMultiple()
+    public function p2p()
     {
         if (!is_array($this->messages) || !is_array($this->phone_numbers) || count($this->messages) !== count($this->phone_numbers))
             throw new \RuntimeException('The data has not been specified correctly. [Message => NOTNULL/ARRAY | PhoneNumbers => NOTNULL||ARRAY | COUNT(Messages) = COUNT(PhoneNumbers)');
@@ -82,7 +82,7 @@ class SMSIR
     public function send()
     {
         if ($this->url_part === null || $this->data === null)
-            throw new \RuntimeException('Please select sms send method [single/fast/multiple/singleMultiple]');
+            throw new \RuntimeException('Please select sms send method [single/fast/multiple/p2p]');
         $url = $this->getBaseUrl() . $this->url_part;
         try {
             $client = new Client(['verify' => false]);
