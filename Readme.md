@@ -24,11 +24,10 @@
         - [ارسال نظیر به نظیر](#p2p)
         - [ارسال وریفای (سریع)](#verify)
 
-# نصب
+## نصب
 
 </div>
 
----
 
 ```
 composer require mrgear/laravel-smsir
@@ -36,9 +35,8 @@ composer require mrgear/laravel-smsir
 
 <div dir="rtl" id="env">
 
-# smsir.php , .env
+## smsir.php , .env
 
----
 
 برای تنظیم کلیدهای شماره خط، لینک پایه (base_url)، شناسه قالب پیش فرض در فایل env. از کلیدهای زیر استفاده کنید
 </div>
@@ -65,9 +63,8 @@ php artisan vendor:publish --provider=MRGear\SMSIR\Providers\SMSIRServiceProvide
 
 <div dir="rtl">
 
-# طریقه استفاده
+## طریقه استفاده
 
----
 
 با استفاده از کلاس ```SMSIR``` میتوانیم پروسه ارسال اس ام اس را انجام دهیم.
 
@@ -124,7 +121,7 @@ $smsir_instance->send();
 در پنل sms.ir سه روش ارسال گروهی، وریفای و نظیر به نظیر تعریف شده است که در زیر مثالی از هرکدام را بررسی میکنیم.
 </div>
 
-<div dir="rtl">
+<div dir="rtl" id="single">
 
 #### روش از سال تکی:
 
@@ -139,7 +136,7 @@ $smsir_instance->message('پیام مورد نظر');
 $smsir_instance->single()->send();
 ```
 
-<div dir="rtl">
+<div dir="rtl" id="multiple">
 
 #### روش از سال گروهی:
 
@@ -154,7 +151,7 @@ $smsir_instance->message('پیام مورد نظر');
 $smsir_instance->multiple()->send();
 ```
 
-<div dir="rtl">
+<div dir="rtl" id="p2p">
 
 #### روش از سال نظیر به نظیر:
 
@@ -169,7 +166,7 @@ $smsir_instance->phoneNumbers(['0912xxx' , '0935xxx']);
 $smsir_instance->p2p()->send();
 ```
 
-<div dir="rtl">
+<div dir="rtl" id="verify">
 
 #### روش از سال وریفای:
 
@@ -183,7 +180,7 @@ $smsir_instance->parameters(['12454' , 'VERIFICATION_CODE'])->fast()->send();
 $smsir_instance->templateId('123xx')->parameters(['VERIFICATION_CODE' , '12345'])->fast()->send();
 ```
 
-<div dir="rtl">
+<div dir="rtl" id="notification">
 
 # نوتیفیکیشن
 
@@ -215,9 +212,7 @@ class User
 اگر ورودی کلاس بصورت رشته باشد، سیستم نوتیفیکیشن ارسال را تکی در نظر میگیرد و ورودی به عنوان پیام ارسال خواهد شد
 
 برای ارسال وریفای میتوان پارامترهای ارسال وریفای را بصورت ارایه به ورودی کلاس داد.
-<div style="color: #856404;
-background-color: #fff3cd;padding: .75rem 1.25rem;;
-border-color: #ffeeba;border-right: solid 3px #856404;">
+<div style="color: #856404;background-color: #fff3cd;padding: .75rem 1.25rem;border-color: #ffeeba;border-right: solid 3px #856404;">
 نکته: جهت انتخاب دستی شناسه قالب میتوانید با کلید 'template_id' در آرایه‌ی ورودی، شناسه را تغییر دهید.
 </div>
 
