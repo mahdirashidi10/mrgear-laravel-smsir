@@ -1,7 +1,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet"> 
-<p align="center"><img src="resources/images/smsirlogo.png"></p>
+<p align="center"><img src="src/resources/images/smsirlogo.png"></p>
 
 <div style="font-family: Lalezar">
 <div dir="rtl">
@@ -21,46 +21,14 @@
 - [نصب](#نصب)
 - [فایل کانفیگ و env.](#env)
 - [طریقه استفاده](#طریقه-استفاده)
-    - [کار با صورتحساب ها](#کار-با-صورتحساب-ها)
-    - [ثبت درخواست برای پرداخت صورتحساب](#ثبت-درخواست-برای-پرداخت-صورتحساب)
-    - [پرداخت صورتحساب](#پرداخت-صورتحساب)
-    - [اعتبار سنجی پرداخت](#اعتبار-سنجی-پرداخت)
-    - [ایجاد درایور دلخواه](#ایجاد-درایور-دلخواه)
-    - [متدهای سودمند](#متدهای-سودمند)
-- [تغییرات](#تغییرات)
-- [مشارکت کننده ها](#مشارکت-کننده-ها)
-- [امنیت](#امنیت)
-- [توسعه دهندگان](#توسعه-دهندگان)
-- [لایسنس](#لایسنس)
+    - [متودها](#متودها)
+    - [چند مثال](#چندمثال)
+        - [ارسال تکی](#single)
+        - [ارسال گروهی](#multiple)
+        - [ارسال نظیر به نظیر](#p2p)
+        - [ارسال وریفای (سریع)](#verify)
+    
 
-# درایورهای موجود
-
-- [اسان پرداخت](https://asanpardakht.ir/) :heavy_check_mark:
-- [آتی‌پی](https://www.atipay.net/) :heavy_check_mark:
-- [به‌پرداخت (mellat)](http://www.behpardakht.com/) :heavy_check_mark:
-- [دیجی پی](https://www.mydigipay.com/) :heavy_check_mark:
-- [ایدی پی](https://idpay.ir/) :heavy_check_mark:
-- [ایرانکیش](http://irankish.com/) :heavy_check_mark:
-- [نکست پی](https://nextpay.ir/) :heavy_check_mark:
-- [پارسیان](https://www.pec.ir/) :heavy_check_mark:
-- [پاسارگاد](https://www.bpi.ir/) :heavy_check_mark:
-- [پی آی ار](https://pay.ir/) :heavy_check_mark:
-- [پی پال](http://www.paypal.com/) (به زودی در ورژن بعدی اضافه میشود)
-- [پی پینگ](https://www.payping.ir/) :heavy_check_mark:
-- [پی استار](http://paystar.ir/) :heavy_check_mark:
-- [پولام](https://poolam.ir/) :heavy_check_mark:
-- [سداد (بانک ملی)](https://sadadpsp.ir/) :heavy_check_mark:
-- [سامان](https://www.sep.ir) :heavy_check_mark:
-- [سپهر (صادرات)](https://www.sepehrpay.com/) :heavy_check_mark:
-- [یک پی](https://yekpay.com/) :heavy_check_mark:
-- [زرین پال](https://www.zarinpal.com/) :heavy_check_mark:
-- [زیبال](https://www.zibal.ir/) :heavy_check_mark:
-- [سپرده](https://sepordeh.com/) :heavy_check_mark:
-- [سیزپی](https://www.sizpay.ir/) :heavy_check_mark:
-
-- درایورهای دیگر ساخته خواهند شد یا اینکه بسازید و درخواست `merge` بدید.
-
-> در صورتی که درایور مورد نظرتون موجود نیست, می‌تونید برای درگاه پرداخت موردنظرتون درایور بسازید.
 
 ## نصب
 
