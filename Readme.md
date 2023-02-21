@@ -30,7 +30,7 @@
     
 
 
-## نصب
+# نصب
 </div>
 
 ---
@@ -42,7 +42,7 @@ composer require mrgear/laravel-smsir
 
 <div dir="rtl" id="env">
 
-## smsir.php , .env
+# smsir.php , .env
 
 ---
 
@@ -71,7 +71,7 @@ php artisan vendor:publish --provider=MRGear\SMSIR\Providers\SMSIRServiceProvide
 
 <div dir="rtl">
 
-##  طریقه استفاده
+#  طریقه استفاده
 
 ---
 
