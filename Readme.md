@@ -184,7 +184,6 @@ $smsir_instance->templateId('123xx')->parameters(['VERIFICATION_CODE' , '12345']
 
 # نوتیفیکیشن
 
----
 کلاس ```SMSIRNotification``` از سیستم نوتیفیکیشن لاراول بهره میبرد.
 
 برای استفاده از سیستم نوتیفیکیشن در کلاسی که از تریت ```Notifiable``` استفاده میکند، نام فیلد شماره تلفن را باید از
@@ -235,5 +234,63 @@ $notification = new \MRGear\SMSIR\Notifications\SMSIRNotification(['VERIFICATION
 
 $user = \App\Models\User::first();
 $user->notify($notification);
+```
+
+# Facade , Helper Function
+
+<div dir="rtl">
+
+برای دسترسی استاتیک و استفاده از قابلیت Facade لاراول میتوانید از کلاس ```MRGear\SMSIR\SMSIRFacade\ ``` استفاده کنید
+
+متود کمکی smsir برای دسترسی به شکل زیر ایجاد شده است
+</div>
+
+```php
+smsir($message , $phone_number, $data = null , $template_id = null);
+```
+<div dir="rtl">
+برای ارسال تکی
+
+کافیست که متغیر اول و دوم را بصورت رشته ارسال کنیم
+</div>
+
+```php
+smsir('message text' , '09xx');
+```
+<div dir="rtl">
+برای ارسال گروهی
+
+در این حالت متغیر ```message$```  را بصورت رشته و متغیر ```phone_number$``` را بصورت رشته ای از شماره‌ها ارسال می‌کنیم
+</div>
+
+```php
+smsir(smsir('message text' , ['09xx' , '09xx' , '09xx']);
+```
+<div dir="rtl">
+برای ارسال نظیر به نظیر
+
+در این حالت متغیر ```message$```  را بصورت ارایه‌ی پیام‌ها و متغیر ```phone_number$``` را بصورت رشته ای از شماره‌ها ارسال می‌کنیم
+
+</div>
+
+```php
+smsir(['message text1' , 'message text2' , 'message text3' ] , ['09xx' , '09xx' , '09xx' ]);
+```
+
+<div dir="rtl">
+برای ارسال وریفای (سریع)
+
+در این حالت کافیست که بجای متغیر اول verify ( با حروف بزرگ یا کوچک)، یا v (کوچک یا بزرگ) ، fast (با حروف بزرگ یا کوچک) یا ```true``` جایگزاری کنیم.
+
+>در این حالت پارامتر‌های مورد نظر بجای متغیر سوم و درصورت نیاز شناسه قالب را بصورت دستی با متغیر چهارم ارسال میکنیم
+
+</div>
+
+```php
+smsir(true , '09x', ['VERIFICATION_CODE' , '123456']);
+smsir('V' , '09x', ['VERIFICATION_CODE' , '123456'] , '12xx');
+smsir('Verify' , '09x', ['123456' , 'VERIFICATION_CODE'] );
+smsir('fast' , '09x', ['12456' , 'VERIFICATION_CODE'] , '12xxx');
+
 ```
 </div>

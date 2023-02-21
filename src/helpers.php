@@ -8,7 +8,7 @@ if (!function_exists('smsir')) {
                 $instance->message($message)->phoneNumber($phone_number)->single();
                 break;
             case is_array($message) && is_array($phone_number):
-                $instance->messages($message)->phoneNumbers($phone_number)->singleMultiple();
+                $instance->messages($message)->phoneNumbers($phone_number)->p2p();
                 break;
             case is_string($message) && is_array($phone_number):
                 $instance->message($message)->phoneNumbers($phone_number)->multiple();
