@@ -15,7 +15,10 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "MRGear\\SMSIR\\": "src/"
+      "MRGear\\SMSIR\\": "src/",
+      "files": [
+        "src/helpers.php"
+      ]
     }
   },
   "autoload-dev": {
@@ -29,7 +32,6 @@
       "email": "mahdirashidi.developer@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
   "extra": {
     "laravel": {
       "providers": [
