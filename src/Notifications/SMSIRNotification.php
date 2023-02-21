@@ -11,8 +11,8 @@ class SMSIRNotification extends Notification
 {
     use Queueable;
 
-    private $message;
-    private $data;
+    protected $message;
+    protected $data;
 
     public function __construct($message = true, $data = null)
     {
@@ -50,7 +50,7 @@ class SMSIRNotification extends Notification
         $SMSIR = new SMSIR();
         switch (true):
             case $this->message === true:
-                $SMSIR->templateId($this->data['template_id'] ?? config('smsir.template_id'))
+                $SMSIR->templateId($this->data['template_id'] ?? null)
                     ->phoneNumber($phone_number)
                     ->parameters(Arr::except($this->data , ['template_id']))
                     ->fast()

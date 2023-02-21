@@ -24,6 +24,7 @@ class SMSIR
     {
         $this->api_key = config('smsir.api_key');
         $this->line_number = config('smsir.line_number');
+        $this->template_id = config('smsir.template_id');
     }
 
 
@@ -119,9 +120,11 @@ class SMSIR
         return $this;
     }
 
-    public function templateId(string $template_id)
+    public function templateId($template_id = null)
     {
-        $this->template_id = $template_id;
+        if (!is_null($template_id)) {
+            $this->template_id = $template_id;
+        }
         return $this;
     }
 
