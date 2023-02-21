@@ -3,7 +3,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet"> 
 <p align="center"><img src="src/resources/images/smsirlogo.png"></p>
 
-<div style="font-family: Lalezar">
+<div style="font-family: Lalezar!important;">
 <div dir="rtl">
 
 # پکیج ارسال اس ام اس sms.ir v2 برای لاراول
