@@ -23,6 +23,9 @@
         - [ارسال گروهی](#multiple)
         - [ارسال نظیر به نظیر](#p2p)
         - [ارسال وریفای (سریع)](#verify)
+- [نوتیفیکیشن](#notification)
+- [Facade and Helper function](#facade)
+
 
 ## نصب
 
@@ -235,9 +238,11 @@ $notification = new \MRGear\SMSIR\Notifications\SMSIRNotification(['VERIFICATION
 $user = \App\Models\User::first();
 $user->notify($notification);
 ```
+<div id="facade">
 
 # Facade , Helper Function
 
+</div>
 <div dir="rtl">
 
 برای دسترسی استاتیک و استفاده از قابلیت Facade لاراول میتوانید از کلاس ```MRGear\SMSIR\SMSIRFacade\ ``` استفاده کنید
