@@ -16,6 +16,10 @@ class SMSIRNotification extends Notification
 
     public function __construct($message = true, $data = null)
     {
+        if (is_array($message)){
+            $data = $message;
+            $message = true;
+        }
         $this->message = $message;
         $this->data = $data;
     }
