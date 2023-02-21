@@ -8,7 +8,6 @@ use MRGear\SMSIR\SMSIRFacade;
 class SMSIRServiceProvider extends ServiceProvider {
     public function boot() {
         if ($this->app->runningInConsole()) {
-
             $this->publishes([
                 __DIR__.'/../Config/smsir.php' => config_path('smsir.php'),
             ], 'config');
@@ -17,10 +16,6 @@ class SMSIRServiceProvider extends ServiceProvider {
     }
     public function register() {
         $this->mergeConfigFrom(__DIR__.'/../Config/smsir.php', 'smsir');
-
-        $this->app->bind('smsir',function() {
-            return new SMSIRFacade();
-        });
     }
 }
 
