@@ -1,20 +1,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet"> 
-<p align="center"><img src="src/resources/images/smsirlogo.png"></p>
+<p align="center"><img src="src/resources/images/smsirlogo.png"> <img src="src/resources/images/swap2.png" width="40"> <img src="src/resources/images/laravel-logo.svg" width="40"></p>
 
 <div style="font-family: Lalezar!important;">
 <div dir="rtl">
 
 # پکیج ارسال اس ام اس sms.ir v2 برای لاراول
 
-
-
 [![License](https://poser.pugx.org/prettus/l5-repository/license)](https://packagist.org/packages/prettus/l5-repository)
 
-این پکیج برای ارسال اس ام اس از طریق API پنل sms.ir ورژن ۲  در طراحی شده است.
-
-
+این پکیج برای ارسال اس ام اس از طریق API پنل sms.ir ورژن ۲ در طراحی شده است.
 
 # لیست محتوا
 
@@ -27,10 +23,9 @@
         - [ارسال گروهی](#multiple)
         - [ارسال نظیر به نظیر](#p2p)
         - [ارسال وریفای (سریع)](#verify)
-    
-
 
 # نصب
+
 </div>
 
 ---
@@ -39,14 +34,13 @@
 composer require mrgear/laravel-smsir
 ```
 
-
 <div dir="rtl" id="env">
 
 # smsir.php , .env
 
 ---
 
-برای تنظیم کلیدهای  شماره خط، لینک پایه (base_url)، شناسه قالب پیش فرض در فایل env. از کلیدهای زیر استفاده کنید
+برای تنظیم کلیدهای شماره خط، لینک پایه (base_url)، شناسه قالب پیش فرض در فایل env. از کلیدهای زیر استفاده کنید
 </div>
 <div dir="ltr">
 
@@ -61,7 +55,7 @@ SMSIR_TEMPLATE_ID=Default template id
 <div dir="rtl">
 فایل کانفیگ smsir.php شامل اطلاعات کلید api، شماره خط، لینک پایه (base_url)، شناسه قالب پیش فرض  میباشد که از فایل env. دریافت میکند.
 
-برای تغییر فایل کانفیگ از دستور زیر استفاده کنید  تا فایل Config/smsir.php درون دایرکتوری تنظیمات لاراول قرار بگیرد.
+برای تغییر فایل کانفیگ از دستور زیر استفاده کنید تا فایل Config/smsir.php درون دایرکتوری تنظیمات لاراول قرار بگیرد.
 
 </div>
 
@@ -71,13 +65,14 @@ php artisan vendor:publish --provider=MRGear\SMSIR\Providers\SMSIRServiceProvide
 
 <div dir="rtl">
 
-#  طریقه استفاده
+# طریقه استفاده
 
 ---
 
 با استفاده از کلاس ```SMSIR``` میتوانیم پروسه ارسال اس ام اس را انجام دهیم.
 
 ### متودها
+
 </div>
 
 ```php
@@ -126,12 +121,12 @@ $smsir_instance->send();
 
 برای ارسال اس ام اس باید پارامترهای مورد نیاز و متود مورد نظر تعیین شود.
 
-در پنل sms.ir سه روش ارسال گروهی، وریفای و نظیر به نظیر تعریف شده است که در زیر مثالی از هرکدام را بررسی میکنیم. 
+در پنل sms.ir سه روش ارسال گروهی، وریفای و نظیر به نظیر تعریف شده است که در زیر مثالی از هرکدام را بررسی میکنیم.
 </div>
 
 <div dir="rtl">
 
-####  روش از سال تکی: 
+#### روش از سال تکی:
 
 </div>
 
@@ -146,7 +141,7 @@ $smsir_instance->single()->send();
 
 <div dir="rtl">
 
-#### روش از سال گروهی: 
+#### روش از سال گروهی:
 
 </div>
 
@@ -161,7 +156,7 @@ $smsir_instance->multiple()->send();
 
 <div dir="rtl">
 
-#### روش از سال نظیر به نظیر: 
+#### روش از سال نظیر به نظیر:
 
 </div>
 
@@ -174,10 +169,9 @@ $smsir_instance->phoneNumbers(['0912xxx' , '0935xxx']);
 $smsir_instance->p2p()->send();
 ```
 
-
 <div dir="rtl">
 
-#### روش از سال وریفای: 
+#### روش از سال وریفای:
 
 </div>
 
@@ -191,10 +185,56 @@ $smsir_instance->templateId('123xx')->parameters(['VERIFICATION_CODE' , '12345']
 
 <div dir="rtl">
 
-## نوتیفیکیشن
+# نوتیفیکیشن
 
 ---
-کلاس ```SMSIRNotification``` از سیستم نوتیفیکیشن لاراول بهره میبرد
+کلاس ```SMSIRNotification``` از سیستم نوتیفیکیشن لاراول بهره میبرد.
+
+برای استفاده از سیستم نوتیفیکیشن در کلاسی که از تریت ```Notifiable``` استفاده میکند، نام فیلد شماره تلفن را باید از
+طریق متغیر ```smsir_phone_number$``` ست کرد.
+
+برای مثال اگر  مدل User را که فیلد شماره تلفن همراه با نام ```phone_number```ذخیره شده است را در نظر بگیریم، متغیر به شکل زیر خواهد بود
 </div>
 
+```php
+namespace App\Models;
+
+use Illuminate\Notifications\Notifiable;
+
+class User  
+{
+    use Notifiable;
+    
+    public $smsir_phone_number = 'phone_number';
+}
+```
+
+<div dir="rtl">
+کلاس نوتیفیکیشن تنها برای استفاده از دو حالت ارسال تکی و ارسال سریع (متود وریفای) استفاده میشود.
+
+اگر ورودی کلاس بصورت رشته باشد، سیستم نوتیفیکیشن ارسال را تکی در نظر میگیرد و ورودی به عنوان پیام ارسال خواهد شد
+
+برای ارسال وریفای میتوان پارامترهای ارسال وریفای را بصورت ارایه به ورودی کلاس داد.
+<div style="color: #856404;
+background-color: #fff3cd;padding: .75rem 1.25rem;;
+border-color: #ffeeba;border-right: solid 3px #856404;">
+نکته: جهت انتخاب دستی شناسه قالب میتوانید با کلید 'template_id' در آرایه‌ی ورودی، شناسه را تغییر دهید.
+</div>
+
+##### مثال
+</div>
+
+```php
+//ارسال تکی
+$notification = new \MRGear\SMSIR\Notifications\SMSIRNotification('پیام مورد نظر');
+
+//ارسال سریع ( وریفای )
+$notification = new \MRGear\SMSIR\Notifications\SMSIRNotification(['VERIFICATION_CODE' , '12345']);
+
+//ارسال سریع (وریفای) با تعیین شناسه قالب
+$notification = new \MRGear\SMSIR\Notifications\SMSIRNotification(['VERIFICATION_CODE' , '12345' , 'template_id' => '12xx']);
+
+$user = \App\Models\User::first();
+$user->notify($notification);
+```
 </div>
