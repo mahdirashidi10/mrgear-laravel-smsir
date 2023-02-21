@@ -123,7 +123,7 @@ $smsir_instance->send();
 
 <div dir="rtl" id="single">
 
-#### روش از سال تکی:
+#### روش ارسال تکی:
 
 </div>
 
@@ -138,7 +138,7 @@ $smsir_instance->single()->send();
 
 <div dir="rtl" id="multiple">
 
-#### روش از سال گروهی:
+#### روش ارسال گروهی:
 
 </div>
 
@@ -153,7 +153,7 @@ $smsir_instance->multiple()->send();
 
 <div dir="rtl" id="p2p">
 
-#### روش از سال نظیر به نظیر:
+#### روش ارسال نظیر به نظیر:
 
 </div>
 
@@ -168,7 +168,7 @@ $smsir_instance->p2p()->send();
 
 <div dir="rtl" id="verify">
 
-#### روش از سال وریفای:
+#### روش ارسال وریفای:
 
 </div>
 
