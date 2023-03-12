@@ -3,7 +3,6 @@
 namespace MRGear\SMSIR\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use MRGear\SMSIR\SMSIR;
 
 class SMSIRServiceProvider extends ServiceProvider {
     public function boot() {

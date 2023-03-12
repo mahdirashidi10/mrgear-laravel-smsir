@@ -40,10 +40,7 @@
     "laravel": {
       "providers": [
         "MRGear\\SMSIR\\Providers\\SMSIRServiceProvider"
-      ],
-      "aliases": {
-        "SMSIRF": "SMSIR"
-      }
+      ]
     }
   }
 }
