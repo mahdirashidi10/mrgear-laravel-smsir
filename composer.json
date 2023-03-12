@@ -42,7 +42,7 @@
         "MRGear\\SMSIR\\Providers\\SMSIRServiceProvider"
       ],
       "aliases": {
-        "SMSIRF": "MRGear\\SMSIR\\SMSIRFacade"
+        "SMSIRF": "SMSIR"
       }
     }
   }
