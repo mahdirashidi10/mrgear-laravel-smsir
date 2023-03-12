@@ -32,9 +32,7 @@
       "email": "mahdirashidi.developer@gmail.com"
     }
   ],
-  "config": {
-    "minimum-stability": "stable"
-  },
+  "minimum-stability": "stable",
   "extra": {
     "laravel": {
       "providers": [
