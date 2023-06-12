@@ -245,7 +245,7 @@ $user->notify($notification);
 </div>
 <div dir="rtl">
 
-برای دسترسی استاتیک و استفاده از قابلیت Facade لاراول میتوانید از کلاس ```MRGear\SMSIR\SMSIRFacade\ ``` استفاده کنید
+برای دسترسی استاتیک و استفاده از قابلیت Facade لاراول میتوانید از کلاس ```MRGear\SMSIR\Facade\SMSIR\ ``` استفاده کنید
 
 متود کمکی smsir برای دسترسی به شکل زیر ایجاد شده است
 </div>
