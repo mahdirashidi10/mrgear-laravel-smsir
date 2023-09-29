@@ -148,12 +148,13 @@ class SMSIR
         return $this;
     }
 
-    protected function dataResolver($parameters)
+    protected function dataResolver($parameters , $magic_resolve = false)
     {
         if (count($parameters) == count($parameters, COUNT_RECURSIVE))
             $parameters = [$parameters];
         $counter = 1;
         $check_counter = 0;
+        if ($magic_resolve === true){
         foreach ($parameters as $parent_key => $parameter):
             foreach ($parameter as $key => $value):
                 if ($counter < 3) {
@@ -193,6 +194,13 @@ class SMSIR
                 $counter++;
             endforeach;
         endforeach;
+        }else{
+            $resolved_parameters = [];
+            foreach ($parameters as $key => $value){
+                $resolved_parameters[] = ['name' => $key , 'value' => $value];
+            }
+            $parameters = $resolved_parameters;
+        }
         return $parameters;
     }
 }
