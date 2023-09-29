@@ -2,6 +2,7 @@
 /**
  * mahdirashidi.developer@gmail.com
  */
+
 namespace MRGear\SMSIR;
 
 use GuzzleHttp\Client;
@@ -148,56 +149,56 @@ class SMSIR
         return $this;
     }
 
-    protected function dataResolver($parameters , $magic_resolve = false)
+    protected function dataResolver($parameters, $magic_resolve = false)
     {
-        if (count($parameters) == count($parameters, COUNT_RECURSIVE))
-            $parameters = [$parameters];
-        $counter = 1;
-        $check_counter = 0;
-        if ($magic_resolve === true){
-        foreach ($parameters as $parent_key => $parameter):
-            foreach ($parameter as $key => $value):
-                if ($counter < 3) {
-                    if (ctype_alpha(str_replace('_', '', $value))) {
-                        $check_counter++;
-                        $name_key = $key;
-                        $name_value = $value;
+        if ($magic_resolve === true) {
+            if (count($parameters) == count($parameters, COUNT_RECURSIVE))
+                $parameters = [$parameters];
+            $counter = 1;
+            $check_counter = 0;
+            foreach ($parameters as $parent_key => $parameter):
+                foreach ($parameter as $key => $value):
+                    if ($counter < 3) {
+                        if (ctype_alpha(str_replace('_', '', $value))) {
+                            $check_counter++;
+                            $name_key = $key;
+                            $name_value = $value;
+                        }
+                        if (ctype_digit($value)) {
+                            $check_counter++;
+                            $value_key = $key;
+                            $value_value = "{$value}";
+                        }
                     }
-                    if (ctype_digit($value)) {
-                        $check_counter++;
-                        $value_key = $key;
-                        $value_value = "{$value}";
+                    if ($check_counter === 2) {
+                        unset($parameters[$parent_key][$name_key]);
+                        $parameters[$parent_key]['name'] = $name_value;
+                        unset($parameters[$parent_key][$value_key]);
+                        $parameters[$parent_key]['value'] = $value_value;
+                        $check_counter = 0;
+                    } else {
+                        if ($counter == 1 && $key !== 'name') {
+                            unset($parameters[$parent_key][$key]);
+                            $parameters[$parent_key]['name'] = $value;
+                        }
+                        if ($counter == 2 && $key !== 'value') {
+                            unset($parameters[$parent_key][$key]);
+                            $parameters[$parent_key]['value'] = $value;
+                        }
                     }
-                }
-                if ($check_counter === 2) {
-                    unset($parameters[$parent_key][$name_key]);
-                    $parameters[$parent_key]['name'] = $name_value;
-                    unset($parameters[$parent_key][$value_key]);
-                    $parameters[$parent_key]['value'] = $value_value;
-                    $check_counter = 0;
-                } else {
-                    if ($counter == 1 && $key !== 'name') {
+                    $array_helper = $parameter;
+                    end($array_helper);
+                    if ($counter >= 3)
                         unset($parameters[$parent_key][$key]);
-                        $parameters[$parent_key]['name'] = $value;
-                    }
-                    if ($counter == 2 && $key !== 'value') {
-                        unset($parameters[$parent_key][$key]);
-                        $parameters[$parent_key]['value'] = $value;
-                    }
-                }
-                $array_helper = $parameter;
-                end($array_helper);
-                if ($counter >= 3)
-                    unset($parameters[$parent_key][$key]);
-                if ($key === key($array_helper))
-                    $counter = 0;
-                $counter++;
+                    if ($key === key($array_helper))
+                        $counter = 0;
+                    $counter++;
+                endforeach;
             endforeach;
-        endforeach;
-        }else{
+        } else {
             $resolved_parameters = [];
-            foreach ($parameters as $key => $value){
-                $resolved_parameters[] = ['name' => $key , 'value' => $value];
+            foreach ($parameters as $key => $value) {
+                $resolved_parameters[] = ['name' => $key, 'value' => $value];
             }
             $parameters = $resolved_parameters;
         }
