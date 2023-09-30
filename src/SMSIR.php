@@ -68,11 +68,11 @@ class SMSIR
         return $this;
     }
 
-    public function fast(array $parameters = [])
+    public function fast(array $parameters = [] , $magic_resolver = false)
     {
         if (($this->parameters === null && $parameters === null) || $this->template_id === null || $this->phone_number === null)
             throw new \RuntimeException('The data has not been specified correctly. [PhoneNumber => NOTNULL/STRING | TemplateId => NOTNULL|STRING | PARAMETERS => NOTNULL|ARRAY');
-        $resolved_data = $this->dataResolver(!empty($this->parameters) ? (array)$this->parameters : $parameters);
+        $resolved_data = $this->dataResolver(!empty($this->parameters) ? (array)$this->parameters : $parameters , $magic_resolver);
         $this->data = [
             'mobile' => (string)$this->phone_number,
             'templateId' => (string)$this->template_id,
@@ -198,7 +198,7 @@ class SMSIR
         } else {
             $resolved_parameters = [];
             foreach ($parameters as $key => $value) {
-                $resolved_parameters[] = ['name' => $key, 'value' => $value];
+                $resolved_parameters[] = ['name' => (string)$key, 'value' => (string)$value];
             }
             $parameters = $resolved_parameters;
         }
